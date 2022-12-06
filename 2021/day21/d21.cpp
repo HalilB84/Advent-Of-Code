@@ -9,6 +9,8 @@
 #define mp make_pair
 using namespace std;
 
+// doesnt have part 2 now
+
 signed main(){
     int pos1=7,pos2=4,pos1a=0,pos2a=0;
     int dice=0,time=0;
