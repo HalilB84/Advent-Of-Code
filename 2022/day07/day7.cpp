@@ -14,7 +14,6 @@ signed main(){
  ifstream file("d7.txt");
  string s;
  int mx=100000;
- int totalSize=70000000;
  int ans=0,cur=0;
  vector<int>av,fin;
 
@@ -39,10 +38,9 @@ signed main(){
   }
 }
  file.close();
-  cout << av[0]  << " " << av[1]<< endl;
   fin.push_back(av.front());
   sort(fin.begin(),fin.end());
-  int need=30000000-(totalSize-fin.back());
+  int need=30000000-(70000000-fin.back());
 
  for(int i=0; i<fin.size(); i++){
     if(fin[i]>=need){ans+=fin[i];break;}
