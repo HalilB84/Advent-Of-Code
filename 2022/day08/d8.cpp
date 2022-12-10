@@ -30,31 +30,26 @@ signed main(){
  for(int i=0; i<99; i++){
     for(int j=0; j<99; j++){
         int high=1;
-        ok=1;
-    if(i==0||i==98||j==0||j==98){ok=0;ans++;continue;}
+    if(i==0||i==98||j==0||j==98){ans++;continue;}
     int test=0;
      for(int z=j+1; z<99; z++){
         test++;
         if(a[i][z]>=a[i][j])break;
-        if(z==98)ok=0;
      }
      high*=test;test=0;
      for(int z=j-1; z>=0; z--){
        test++;
         if(a[i][z]>=a[i][j])break;
-        if(z==0)ok=0;
      }
      high*=test; test=0;
      for(int z=i+1; z<99; z++){
         test++;
         if(a[z][j]>=a[i][j])break;
-        if(z==98)ok=0;
      }
      high*=test; test=0;
      for(int z=i-1; z>=0; z--){
         test++;
         if(a[z][j]>=a[i][j])break;
-        if(z==0)ok=0;
      }
      high*=test;
     mx=max(mx,high);
