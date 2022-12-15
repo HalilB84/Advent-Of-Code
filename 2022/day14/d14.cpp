@@ -13,15 +13,15 @@
 using namespace std;
 
 vector<int> v;
-int ar[1000][1000];
+int ar[1000][1000];;
 int sX=500,sY=0,i=0,ans=0,mx=-1;
 
 void draw(int a, int b, int c, int d){
   if(a==c){
-    for(int i=min(b,d); i<=max(b,d); i++){ar[i][a]=1;}
+    for(int i=min(b,d); i<=max(b,d); i++) ar[i][a]=1;
   }
   else{
-    for(int i=min(a,c); i<=max(a,c); i++){ar[b][i]=1;}
+    for(int i=min(a,c); i<=max(a,c); i++) ar[b][i]=1;
   }
 }
 
@@ -44,8 +44,8 @@ signed main(){
        if(s[i]==','||i==s.size()-1){v.push_back(stoi(n)); n="";}
        if(s[i]==' '&&s[i-1]!='>'){v.push_back(stoi(n)); n="";}
         if(v.size()==4){ 
-        mx=max(mx,v[1]); mx=max(mx,v[3]);
-         draw(v[0],v[1],v[2],v[3]);v.erase(v.begin()); v.erase(v.begin());}
+        mx=max(mx,v[1]);
+        draw(v[0],v[1],v[2],v[3]); v.erase(v.begin(),v.begin()+2);}
      }
    }
 }
