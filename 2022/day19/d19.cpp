@@ -17,7 +17,7 @@ using namespace std;
 
 int oreR, clayR, obsOreR, obsClayR, geoOreR, geoObsR,ans=0,mx=0;
 int oreRobot, clayRobot, obsidianRobot, geodeRobot;
-int tot=0;
+int tot=0,tot2=0;
 
 // working on this still
 
@@ -32,8 +32,8 @@ int dfs(int mint, int oreBot, int clayBot, int obsBot, int geoBot, vector<int> a
    amount[3]+=geoBot;
   //if(amount[3]>=2)cout << amount[3] << " "<< mint << endl;
  if(type==0)oreBot++; 
-  if(type==1)clayBot++; 
-   if(type==2)obsBot++; 
+ if(type==1)clayBot++; 
+ if(type==2)obsBot++; 
  if(type==3)geoBot++; 
 
  int ok5=1,ok2=1,ok3=1,ok4=1;
@@ -42,16 +42,16 @@ int dfs(int mint, int oreBot, int clayBot, int obsBot, int geoBot, vector<int> a
     mx=max(mx,amount[3]);
     return 0;
    }
- if(1==1){
+ if(oreBot<=4){
    ok5=0;
    if(amount[0]>=oreR){
    amount[0]-=oreR;  
    int a = dfs(mint+1, oreBot, clayBot, obsBot, geoBot, amount,0);
    amount[0]+=oreR; 
+  }
+  else int g = dfs(mint+1, oreBot, clayBot, obsBot, geoBot, amount,-1);
+
  }
-   else int g = dfs(mint+1, oreBot, clayBot, obsBot, geoBot, amount,-1);
- }
- 
  if(amount[0]>=geoOreR&&amount[2]>=geoObsR){
     ok2=0;
    amount[0]-=geoOreR; amount[2]-=geoObsR;
@@ -80,7 +80,7 @@ ifstream file("test.txt");
 int num=0;
 string s;
 if(file.is_open()){
-  for(int i=1; i<=1; i++){
+  for(int i=1; i<=2; i++){
     for(int j=0; j<32; j++){
       if(j==6){file >> num; oreR=num;}
       else if(j==12){file >> num; clayR=num;}
@@ -95,8 +95,8 @@ if(file.is_open()){
     // 0 ore - 1 clay - 2 obsidian - 3 geode
     mx=0;
    int p=dfs(1,1,0,0,0, amount,-1);
-   ans+=i*mx;
-   cout << 28*mx << endl;
+   if(i==1){ans+=27*mx; cout << 27*mx << endl;}
+   if(i==2){ans+=28*mx; cout << 28*mx << endl;}
   // cout << i*mx << endl;
   }
 }

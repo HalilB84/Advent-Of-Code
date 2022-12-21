@@ -31,11 +31,11 @@ file.close();
 for(int z=0; z<10; z++){
     int newindx;
  for(int i=0; i<5000; i++){
-    int index, add,move,val;
+    int index,add,move,val;
     for(int j=0; j<5000; j++) if(a[j].second==i){index=j; add=a[j].second; move=a[j].first; val=a[j].first; break;}
     if(move>=0) newindx = (index+move)%4999;
     else{
-    move=abs(move)%4999; move=-move; 
+    move=-(abs(move)%4999); 
     if(abs(move)<index){newindx = (index+move);}
     else{newindx=4999-(abs(move)-index);}
     }
